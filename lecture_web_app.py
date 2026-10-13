@@ -178,7 +178,7 @@ def page_lectures():
 
         titre = st.text_input("Titre du livre")
         pages_total = st.number_input("Pages totales", min_value=1, max_value=10000, value=300)
-        format_livre = st.radio("Format", ["poche", "grand"], horizontal=True)
+        format_livre = st.radio("Format", ["Poche", "Grand format"], horizontal=True)
         echeance = st.date_input("Échéance", value=date.today())
 
         if st.button("Ajouter ce livre"):
