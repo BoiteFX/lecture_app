@@ -9,11 +9,14 @@ DATA_URL = f"{BASE_URL}/data.json"
 def charger_data():
     try:
         r = requests.get(DATA_URL)
-        if r.status_code == 200 and r.text:
+        if r.status_code == 200:
+            if r.text == "null" or r.text.strip() == "":
+                return {"profils": [], "livres": []}
             return json.loads(r.text)
         return {"profils": [], "livres": []}
     except Exception:
         return {"profils": [], "livres": []}
+
 
 def sauvegarder_data(data):
     try:
